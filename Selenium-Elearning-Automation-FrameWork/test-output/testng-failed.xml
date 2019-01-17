@@ -8,7 +8,7 @@
           <include name="beforeClass"/>
           <include name="beforeMethod"/>
           <include name="afterClass"/>
-          <include name="filterMemberTransaction" invocation-numbers="0"/>
+          <include name="filterMemberTransaction_Loan"/>
           <include name="afterMethod"/>
         </methods>
       </class> <!-- com.training.sanity.tests.FilterTrxDetails_MemberTest -->

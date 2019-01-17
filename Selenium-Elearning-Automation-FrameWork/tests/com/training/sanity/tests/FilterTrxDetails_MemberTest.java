@@ -60,11 +60,11 @@ public class FilterTrxDetails_MemberTest {
 	  }
 	  
   @Test(dataProvider = "SearchResult_All")
-  public void filterMemberTransaction(String date, String name, String description, String amount)
+  public void filterMemberTransaction_All(String date, String name, String description, String amount) throws InterruptedException
   
   {
 		  
-	  System.out.println("------Testcase : CYTC_046 -------");
+	  System.out.println("------Testcase : CYTC_046 : All -------");
 	 	loginPOM.sendUserName("Soumita123");
 		loginPOM.sendPassword("test1234");
 		loginPOM.clickLoginBtn();
@@ -72,6 +72,31 @@ public class FilterTrxDetails_MemberTest {
 		filtertrx_member.validateResultAll(date,name,description,amount);
   }
  
+  
+  @Test(enabled = false)
+  public void filterMemberTransaction_Date() 
+  
+  {
+		  
+	  System.out.println("------Testcase : CYTC_046 : Date Range -------");
+	 	
+	  filtertrx_member.search_DateRange();
+		//filtertrx_member.validateResultAll(date,name,description,amount);
+	  
+  }
+
+  
+  @Test(dataProvider="SearchResult_Loan")
+  public void filterMemberTransaction_Loan(String date, String name, String description, String amount) 
+  
+  {
+		  
+	  System.out.println("------Testcase : CYTC_046 : Loan -------");
+	 	
+	  filtertrx_member.search_Loan();
+	  filtertrx_member.validateResultAll(date,name,description,amount);
+	  
+  }
 
   
 
@@ -84,4 +109,16 @@ public class FilterTrxDetails_MemberTest {
       };
   
   }
+  
+  @DataProvider(name="SearchResult_Loan")
+  public Object[][] getDataFromDataprovider1(){
+  return new Object[][] 
+  	{
+          {"15/01/2019", "Debit account","home loan","+3,00"},
+        
+      };
+  
+  }
+  
+  
 }
