@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="67371" started-at="2019-01-16T18:39:58Z" finished-at="2019-01-16T18:41:05Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="67371" started-at="2019-01-16T18:39:58Z" finished-at="2019-01-16T18:41:05Z">
+      <class name="com.training.sanity.tests.FilterTrxDetails_MemberTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="beforeClass" is-config="true" duration-ms="48992" started-at="2019-01-16T18:39:58Z" finished-at="2019-01-16T18:40:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2019-01-16T18:40:47Z" finished-at="2019-01-16T18:40:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="filterMemberTransaction(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="filterMemberTransaction" duration-ms="18149" started-at="2019-01-16T18:40:47Z" data-provider="SearchResult_All" finished-at="2019-01-16T18:41:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[16/01/2019]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[artish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test3]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[+0,30]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- filterMemberTransaction -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-01-16T18:41:05Z" finished-at="2019-01-16T18:41:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="afterClass" is-config="true" duration-ms="1" started-at="2019-01-16T18:41:05Z" finished-at="2019-01-16T18:41:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.training.sanity.tests.FilterTrxDetails_MemberTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
