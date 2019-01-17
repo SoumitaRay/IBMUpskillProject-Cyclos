@@ -183,22 +183,34 @@ WebDriver driver;
 		this.searchFilterBtn.click();
 		
  
-		List<WebElement> date = driver.findElements(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr/td[1]"));
 	
-		do {
+		try {
 			
 		
-		for(WebElement we : date)
+		do {
+			
+			List<WebElement> date = driver.findElements(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr/td[1]"));
+			int rows= date.size();
+			
+		
+		for(int i=2;i<rows;i++)
 			
 	{		
-			int i=2;
+			
 			
 			WebElement dateData = driver.findElement(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr["+i+"]/td[1]"));
 			boolean check = (dateData.getText().contentEquals("16/01/2019")) ||  (dateData.getText().contentEquals("15/01/2019")) ||  (dateData.getText().contentEquals("13/01/2019"));
 			System.out.println(check);
-			i++;
+		
+			 boolean nextpg = this.nextpage_searchResult.isDisplayed();
+			 System.out.println("icon present" +nextpg);
 	}
 		}while(this.nextpage_searchResult.isDisplayed());
+		
+		}catch(Exception e)
+		{
+			
+		}
 	}
 	
 	

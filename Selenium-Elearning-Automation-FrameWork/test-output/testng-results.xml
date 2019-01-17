@@ -1,89 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="3" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="132894" started-at="2019-01-17T16:48:57Z" finished-at="2019-01-17T16:51:10Z">
+  <suite name="Default suite" duration-ms="88379" started-at="2019-01-17T19:27:20Z" finished-at="2019-01-17T19:28:48Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="132894" started-at="2019-01-17T16:48:57Z" finished-at="2019-01-17T16:51:10Z">
-      <class name="com.training.sanity.tests.FilterTrxDetails_MemberTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="beforeClass" is-config="true" duration-ms="99270" started-at="2019-01-17T16:48:57Z" finished-at="2019-01-17T16:50:37Z">
+    <test name="Default test" duration-ms="88379" started-at="2019-01-17T19:27:20Z" finished-at="2019-01-17T19:28:48Z">
+      <class name="com.training.sanity.tests.SchdulePayment_MemberTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="beforeClass" is-config="true" duration-ms="69725" started-at="2019-01-17T19:27:20Z" finished-at="2019-01-17T19:28:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2019-01-17T16:50:37Z" finished-at="2019-01-17T16:50:37Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="beforeMethod" is-config="true" duration-ms="4" started-at="2019-01-17T19:28:29Z" finished-at="2019-01-17T19:28:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="filterMemberTransaction_All(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="filterMemberTransaction_All" duration-ms="26489" started-at="2019-01-17T16:50:37Z" data-provider="SearchResult_All" finished-at="2019-01-17T16:51:03Z">
+        <test-method status="PASS" signature="SchedulePayment_Member(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="SchedulePayment_Member" duration-ms="18594" started-at="2019-01-17T19:28:29Z" data-provider="FuturePay" finished-at="2019-01-17T19:28:48Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[16/01/2019]]>
+                <![CDATA[arti testnew]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[artish]]>
+                <![CDATA[1,20]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Test3]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[+0,30]]>
+                <![CDATA[welcome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- filterMemberTransaction_All -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2019-01-17T16:51:03Z" finished-at="2019-01-17T16:51:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="filterMemberTransaction_Loan(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="filterMemberTransaction_Loan" duration-ms="7069" started-at="2019-01-17T16:51:03Z" data-provider="SearchResult_Loan" finished-at="2019-01-17T16:51:10Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[15/01/2019]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Debit account]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[home loan]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[+3,00]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- filterMemberTransaction_Loan -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-01-17T16:51:03Z" finished-at="2019-01-17T16:51:03Z">
+        </test-method> <!-- SchedulePayment_Member -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-01-17T19:28:48Z" finished-at="2019-01-17T19:28:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="afterMethod" is-config="true" duration-ms="5" started-at="2019-01-17T16:51:10Z" finished-at="2019-01-17T16:51:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.training.sanity.tests.FilterTrxDetails_MemberTest@1e88b3c]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-01-17T16:51:10Z" finished-at="2019-01-17T16:51:10Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-01-17T19:28:48Z" finished-at="2019-01-17T19:28:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.training.sanity.tests.FilterTrxDetails_MemberTest -->
+      </class> <!-- com.training.sanity.tests.SchdulePayment_MemberTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
