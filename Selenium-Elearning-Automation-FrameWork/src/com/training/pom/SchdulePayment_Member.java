@@ -1,5 +1,11 @@
 package com.training.pom;
 
+import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -103,7 +109,7 @@ public class SchdulePayment_Member {
 		this.AccountMenu.click();
 		this.memberPaymentMenu.click();
 		this.login.clear();
-		this.memName.sendKeys(name);
+		this.login.sendKeys(name);
 		Thread.sleep(3000);
 		this.amount.sendKeys(amount);
 		Select select = new Select(schType);
@@ -115,20 +121,83 @@ public class SchdulePayment_Member {
 		this.description.sendKeys(desc);
 		this.submit_MemPay.click();
 		boolean checkheader = (trxConfirm_header.getText()).equalsIgnoreCase("Transaction confirmation");
+		System.out.println(trxConfirm_header.getText());
 		boolean checkname = (trxConfirm_memName.getText()).contains(name);
-		boolean checkamount = (trxConfirm_memAmt.getText()).contains(amount);
-		boolean checkdate = (trxConfirm_futuredate.getText()).contains("31/01/2019");
-		boolean checkdesc = (trxConfirm_desc.getText()).contains(desc);
+		System.out.println(trxConfirm_memName.getText());
+		System.out.println(trxConfirm_memAmt.getText());
+		String sch_date = trxConfirm_futuredate.getText();
 		this.trxConfirm_Submit.click();
 		this.trxConfirm_payNow.click();
 		this.memPay_Submit.click();
-		boolean trxstatus = (trx_Status.getText()).equalsIgnoreCase("Processed");
+		String status = trx_Status.getText();
+		
 		this.submenuSchPayments.click();
 		Select mempaystatus = new Select(schPay_statusDD);
 		mempaystatus.selectByVisibleText("Closed (entirely paid)");
 		
-			
+		
+			validate_searchResult_SchPayment(sch_date,name,amount,status);
+	
 	}
+
+	
+	public void validate_searchResult_SchPayment(String sch_date,String name,String amount,String status)
+	{
+		this.AccountMenu.click();
+		this.submenuSchPayments.click();
+		Select mempaystatus = new Select(schPay_statusDD);
+		mempaystatus.selectByVisibleText("Closed (entirely paid)");
+		List<WebElement> result_table = driver.findElements(By.xpath("(//*[@class='defaultTable'])[2]/tbody/tr[2]/td"));
+		int columns = result_table.size();
+		String[] get_result_table = new String[columns];
+		
+		try {
+			
+		
+		for (int col = 1;col <columns; col++)
+		{
+			WebElement result_table_data=driver.findElement(By.xpath("(//*[@class='defaultTable'])[2]/tbody/tr[2]/td["+col+"]"));
+			
+			get_result_table[col-1]= result_table_data.getText();
+			System.out.print(col+" ");
+			System.out.println(result_table_data.getText());
+					
+				switch (col - 1)
+				{
+				case 0:
+					System.out.println(result_table_data);
+					assertEquals(get_result_table[col - 1], sch_date);
+					break;
+				case 1:
+					System.out.println(result_table_data);
+					assertEquals(get_result_table[col - 1], "Member account");
+					break;
+				case 2:
+					System.out.println(result_table_data);
+					assertEquals(get_result_table[col - 1], name);
+					break;
+				case 3:
+					System.out.println(result_table_data);
+					assertTrue(get_result_table[col - 1].contains(amount));
+					break;
+				case 5:
+					System.out.print(col);
+					assertEquals(get_result_table[col - 1], status);
+					break;
+
+				default: 
+					break;
+				}
+			}
+		
+		}catch (Exception e)
+		{ 
+			e.printStackTrace();
+		}
+		
+
+	}
+
 
 	
 

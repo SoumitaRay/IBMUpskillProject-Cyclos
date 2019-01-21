@@ -2,45 +2,45 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="88379" started-at="2019-01-17T19:27:20Z" finished-at="2019-01-17T19:28:48Z">
+  <suite name="Default suite" duration-ms="115926" started-at="2019-01-20T16:06:49Z" finished-at="2019-01-20T16:08:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="88379" started-at="2019-01-17T19:27:20Z" finished-at="2019-01-17T19:28:48Z">
+    <test name="Default test" duration-ms="115926" started-at="2019-01-20T16:06:49Z" finished-at="2019-01-20T16:08:45Z">
       <class name="com.training.sanity.tests.SchdulePayment_MemberTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="beforeClass" is-config="true" duration-ms="69725" started-at="2019-01-17T19:27:20Z" finished-at="2019-01-17T19:28:29Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="beforeClass" is-config="true" duration-ms="84983" started-at="2019-01-20T16:06:49Z" finished-at="2019-01-20T16:08:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="beforeMethod" is-config="true" duration-ms="4" started-at="2019-01-17T19:28:29Z" finished-at="2019-01-17T19:28:29Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2019-01-20T16:08:14Z" finished-at="2019-01-20T16:08:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="SchedulePayment_Member(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="SchedulePayment_Member" duration-ms="18594" started-at="2019-01-17T19:28:29Z" data-provider="FuturePay" finished-at="2019-01-17T19:28:48Z">
+        <test-method status="PASS" signature="SchedulePayment_Member(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="SchedulePayment_Member" duration-ms="30883" started-at="2019-01-20T16:08:14Z" data-provider="FuturePay" finished-at="2019-01-20T16:08:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[arti testnew]]>
+                <![CDATA[Selenium1]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[1,20]]>
+                <![CDATA[0,66]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[welcome]]>
+                <![CDATA[welcome-test]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SchedulePayment_Member -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-01-17T19:28:48Z" finished-at="2019-01-17T19:28:48Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-01-20T16:08:45Z" finished-at="2019-01-20T16:08:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-01-17T19:28:48Z" finished-at="2019-01-17T19:28:48Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.training.sanity.tests.SchdulePayment_MemberTest@1e88b3c]" name="afterClass" is-config="true" duration-ms="0" started-at="2019-01-20T16:08:45Z" finished-at="2019-01-20T16:08:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

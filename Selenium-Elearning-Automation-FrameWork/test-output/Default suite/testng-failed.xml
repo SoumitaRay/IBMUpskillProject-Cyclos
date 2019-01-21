@@ -9,7 +9,7 @@
           <include name="beforeClass"/>
           <include name="afterMethod"/>
           <include name="afterClass"/>
-          <include name="SchedulePayment_Member" invocation-numbers="0"/>
+          <include name="SchedulePayment_Member"/>
         </methods>
       </class> <!-- com.training.sanity.tests.SchdulePayment_MemberTest -->
     </classes>

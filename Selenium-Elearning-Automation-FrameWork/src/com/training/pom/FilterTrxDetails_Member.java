@@ -101,6 +101,9 @@ WebDriver driver;
 	@FindBy(name="query(paymentFilter)")
 	WebElement trxType;
 
+	@FindBy(xpath="//*[@id=\"tdContents\"]/table[1]/tbody/tr[3]/td/table/tbody/tr[2]")
+	WebElement tableExist;
+	
 	
 	public void searchAll()
 
@@ -191,25 +194,32 @@ WebDriver driver;
 			
 			List<WebElement> date = driver.findElements(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr/td[1]"));
 			int rows= date.size();
-			
+			System.out.println(rows);
 		
-		for(int i=2;i<rows;i++)
+		for(int i=2;i<=rows + 1;i++)
 			
 	{		
-			
+			//System.out.println("i=" +i);
+		
 			
 			WebElement dateData = driver.findElement(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr["+i+"]/td[1]"));
 			boolean check = (dateData.getText().contentEquals("16/01/2019")) ||  (dateData.getText().contentEquals("15/01/2019")) ||  (dateData.getText().contentEquals("13/01/2019"));
 			System.out.println(check);
 		
-			 boolean nextpg = this.nextpage_searchResult.isDisplayed();
-			 System.out.println("icon present" +nextpg);
+			
+			
 	}
-		}while(this.nextpage_searchResult.isDisplayed());
+		System.out.println("next button" + nextpage_searchResult.isEnabled());
+		if(this.nextpage_searchResult.isEnabled())
+			{nextpage_searchResult.click();}
+		else 
+			{break;}
+		
+		}while(this.tableExist.isDisplayed());
 		
 		}catch(Exception e)
 		{
-			
+			e.printStackTrace();
 		}
 	}
 	
