@@ -206,14 +206,16 @@ WebDriver driver;
 			boolean check = (dateData.getText().contentEquals("16/01/2019")) ||  (dateData.getText().contentEquals("15/01/2019")) ||  (dateData.getText().contentEquals("13/01/2019"));
 			System.out.println(check);
 		
+			System.out.println("next button" + nextpage_searchResult.isEnabled());
+			
+			if(this.nextpage_searchResult.isEnabled())
+				{nextpage_searchResult.click();}
+			else 
+				break;
 			
 			
 	}
-		System.out.println("next button" + nextpage_searchResult.isEnabled());
-		if(this.nextpage_searchResult.isEnabled())
-			{nextpage_searchResult.click();}
-		else 
-			{break;}
+		
 		
 		}while(this.tableExist.isDisplayed());
 		
