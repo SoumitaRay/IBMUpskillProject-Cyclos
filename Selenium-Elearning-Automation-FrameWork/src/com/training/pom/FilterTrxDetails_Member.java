@@ -1,9 +1,11 @@
 package com.training.pom;
 
+import static org.testng.Assert.assertFalse;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -94,8 +96,8 @@ WebDriver driver;
 	@FindBy(xpath="//*[@id='tdContents']/table[1]/tbody/tr[3]/td/")
 	WebElement resultTable;
 	
-	@FindBy(xpath="//*[@title='Next page']")
-	WebElement nextpage_searchResult;
+	@FindBy(xpath="//img[@title='Next page']")
+	WebElement nextImage;
 	
 	
 	@FindBy(name="query(paymentFilter)")
@@ -184,14 +186,15 @@ WebDriver driver;
 //		this.date16Jan.click();
 		this.datepickTo.sendKeys("16/01/2019");
 		this.searchFilterBtn.click();
+		Boolean ImagePresent = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", nextImage);
 		
- 
-	
 		try {
 			
 		
-		do {
-			
+			while(this.tableExist != null)
+			{
+
+				
 			List<WebElement> date = driver.findElements(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr/td[1]"));
 			int rows= date.size();
 			System.out.println(rows);
@@ -204,20 +207,33 @@ WebDriver driver;
 			
 			WebElement dateData = driver.findElement(By.xpath("//*[@id='tdContents']/table[1]/tbody/tr[3]/td/table/tbody/tr["+i+"]/td[1]"));
 			boolean check = (dateData.getText().contentEquals("16/01/2019")) ||  (dateData.getText().contentEquals("15/01/2019")) ||  (dateData.getText().contentEquals("13/01/2019"));
-			System.out.println(check);
-		
-			System.out.println("next button" + nextpage_searchResult.isEnabled());
+			System.out.println("date matched" +check);
+		System.out.println(i);
+			//System.out.println("next button " + nextpage_searchResult.isDisplayed());
 			
-			if(this.nextpage_searchResult.isEnabled())
-				{nextpage_searchResult.click();}
-			else 
-				break;
-			
-			
-	}
+				
+		}
 		
 		
-		}while(this.tableExist.isDisplayed());
+		
+//		if(this.nextpage_searchResult.isEnabled())
+//		nextpage_searchResult.click();
+//		else 
+//			break;
+//		
+
+		
+		if(ImagePresent)
+		{
+			this.nextImage.click();
+		}
+		if(!(ImagePresent))
+		{
+			break;
+		}
+		}
+		
+		//while(this.nextpage_searchResult.isDisplayed());
 		
 		}catch(Exception e)
 		{
