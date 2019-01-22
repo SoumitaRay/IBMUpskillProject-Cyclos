@@ -59,7 +59,7 @@ public class FilterTrxDetails_MemberTest {
 	  public void afterClass() {
 	  }
 	  
-  @Test(dataProvider = "SearchResult_All")
+  @Test(dataProvider = "SearchResult_All", priority = 1)
   public void filterMemberTransaction_All(String date, String name, String description, String amount) throws InterruptedException
   
   {
@@ -73,7 +73,7 @@ public class FilterTrxDetails_MemberTest {
   }
  
   
-  @Test
+  @Test(priority = 2)
   public void filterMemberTransaction_Date() 
   
   {

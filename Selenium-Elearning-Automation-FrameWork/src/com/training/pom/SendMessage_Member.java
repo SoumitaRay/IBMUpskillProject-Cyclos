@@ -46,7 +46,7 @@ public class SendMessage_Member {
 	@FindBy(xpath ="//*[@class='cke_icon']")
 	WebElement boldtext;
 
-	@FindBy(xpath ="//*[@class='CSS1Compat']")  //*[@class='CSS1Compat']
+	@FindBy(xpath ="//*[@class='CSS1Compat']")  
 	WebElement msgbody;
 	
 	@FindBy(xpath="//*[@class='menuText' and contains(text(),'Logout')]")
@@ -54,6 +54,9 @@ public class SendMessage_Member {
 	
 	@FindBy(xpath ="(//*[@class='defaultTable'])[2]/tbody/tr[2]/td[3]")
 	WebElement result_table_subject;
+	
+	@FindBy(xpath="(//*[@class='defaultTable'])[2]/tbody/tr[2]/td[3]//*[@class='linkList messageDetails']")
+	WebElement subject_link;
 	
 	@FindBy(xpath ="(//*[@class='defaultTable'])[2]/tbody/tr[2]/td[4]")
 	WebElement result_table_from;
@@ -73,12 +76,16 @@ public class SendMessage_Member {
 	@FindBy(id="replyButton")
 	WebElement reply_btn;
 	
-	public void type_msg_Member(String name, String subject,String msg)
+	@FindBy(xpath="//*[@class='cke_editor']")
+	WebElement mail_editor;
+	
+	public void type_msg_Member(String login,String name, String subject,String msg)
 	{
 		
 		this.menu_Personal.click();
 		this.submenu_Messages.click();
 		this.submit_btn.click();
+		this.login.sendKeys(login);
 		this.memName.sendKeys(name);
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		//wait.until(ExpectedCondition<Boolean>()
@@ -116,18 +123,21 @@ public class SendMessage_Member {
 		
 		assertTrue(this.result_table_subject.getText().equalsIgnoreCase(subject));
 		assertTrue(this.result_table_from.getText().equalsIgnoreCase(name));
-		this.result_table_subject.click();
+		this.subject_link.click();
 		assertTrue(this.recipient_msgbody.getText().equalsIgnoreCase(msg));
 		
-		replymail_chkSentItems(subject);
+		replymail_chkSentItems(subject,name);
 	}
 	
-	public void replymail_chkSentItems(String subject)
+	public void replymail_chkSentItems(String subject,String name)
 	{
 		this.reply_btn.click();
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(mail_editor));
 		driver.switchTo().frame(0);
 		this.msgbody.sendKeys(Keys.CONTROL.HOME);
 		this.msgbody.sendKeys("Thank you");
+		driver.switchTo().defaultContent();
 		this.submit_btn.click();
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
@@ -135,8 +145,9 @@ public class SendMessage_Member {
 		select_type.selectByVisibleText("Sent items");
 		Select select_owner_type= new Select(msg_type);
 		select_owner_type.selectByVisibleText("Member");
+		assertTrue(this.result_table_from.getText().contains(name));
 		assertTrue(this.result_table_subject.getText().contains(subject));
-		this.result_table_subject.click();
+		this.subject_link.click();
 		assertTrue(this.recipient_msgbody.getText().contains("Thank you"));
 	}
 	

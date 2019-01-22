@@ -13,18 +13,17 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.FilterMessag_Member;
+import com.training.pom.AddContact_Member;
 import com.training.pom.LoginPOM;
-import com.training.pom.SendMessage_Member;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class SendMessageTest {
+public class AddContact_MakeMemberPaymentTest {
 	
 	private WebDriver driver;
 	private static String baseUrl;
 	private LoginPOM loginPOM;
-	private SendMessage_Member sendmsg_member;
+	private AddContact_Member addcontact_member;
 	
 	private static Properties properties;
 	private static ScreenShot screenShot;
@@ -47,7 +46,7 @@ public class SendMessageTest {
 		   screenShot = new ScreenShot(driver); 
 		   driver = DriverFactory.getDriver(DriverNames.CHROME);
 		   loginPOM = new LoginPOM(driver); 
-		   sendmsg_member = new SendMessage_Member(driver);
+		   addcontact_member = new AddContact_Member(driver);
 			
 		   
 		// open the browser 
@@ -59,45 +58,25 @@ public class SendMessageTest {
 	  }
 
 	
-	 
-  @Test(dataProvider="Sendmessage" , priority = 1)
-  public void sendmessage_Member(String login,String name,String subject,String msg)
-  {
-	  System.out.println("------Testcase : CYTC_049 : Send Msg -------");
+
+	
+  @Test(dataProvider="makePayment")
+  public void addPayee_Member(String username, int amount, String desc)
+ {
+	  System.out.println("------Testcase : CYTC_050 : Add contact_Member and Make payment");
 	 	loginPOM.sendUserName("Soumita123");
 		loginPOM.sendPassword("test1234");
 		loginPOM.clickLoginBtn();
-		sendmsg_member.type_msg_Member(login,name, subject, msg);
-		sendmsg_member.logout();
+		addcontact_member.addContact(username);
+		addcontact_member.makepayment_member(username, amount, desc);
 		
   }
   
-  @Test(dataProvider="Inbox" , priority = 2)
-  public void recievemessage_Member(String name,String subject,String msg)
-  {
-	  System.out.println("------Testcase : CYTC_049 : Receive Msg -------");
-	 	loginPOM.sendUserName("artish");
-		loginPOM.sendPassword("12345");
-		loginPOM.clickLoginBtn();
-		sendmsg_member.checkmsg(name, subject, msg);
-		
-  }
-  
-  @DataProvider(name="Sendmessage")
+  @DataProvider(name="makePayment")
   public Object[][] getDataFromDataprovider1(){
   return new Object[][] 
   	{
-          {"artish", "arti testnew", "Hello","welcome to cyclos-testmail 1"},
-        
-      };
-  
-  }
-  
-  @DataProvider(name="Inbox")
-  public Object[][] getDataFromDataprovider2(){
-  return new Object[][] 
-  	{
-          {"Soumita123", "Hello","welcome to cyclos-testmail 1"},
+          {"artish", 220, "joining bonus"},
         
       };
   
