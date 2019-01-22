@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.SchdulePayment_MemberTest">
+      <class name="com.training.sanity.tests.FilterMessage_MemberTest">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="beforeClass"/>
           <include name="afterMethod"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
           <include name="afterClass"/>
-          <include name="SchedulePayment_Member"/>
+          <include name="filtermsg_Inbox"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.SchdulePayment_MemberTest -->
+      </class> <!-- com.training.sanity.tests.FilterMessage_MemberTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
