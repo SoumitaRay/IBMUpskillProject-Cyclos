@@ -67,7 +67,7 @@ public class MemberProfileTest {
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		driver.quit();
+		//driver.quit();
 	}
 	
 	
@@ -75,7 +75,7 @@ public class MemberProfileTest {
 	@Test
 	public void MemberProfileTest() throws InterruptedException
 	{
-		System.out.println("------ Testcase : CYTC_016 -------");
+		System.out.println("------ Testcase : CYTC_016 :Validate dropdown -------");
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("12345");
 		loginPOM.clickLoginBtn();
@@ -83,7 +83,7 @@ public class MemberProfileTest {
 		memberprofile.sendMemberUserName("SoumitaAAA");
 //		Thread.sleep(2000);
 		memberprofile.click_AccountInfo();
-		memberprofile.selectCommPaymentType("All");
+		memberprofile.selectCommPaymentType("Commission payments");
 	}
 	
 }

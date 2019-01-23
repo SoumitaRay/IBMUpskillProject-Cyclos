@@ -88,7 +88,7 @@ public class ViewLoanRecordTest {
    
   public void ViewLoanforMember_Admin(String description , String amount) throws InterruptedException
   {
- 	 System.out.println("------Testcase : CYTC_019 -------");
+ 	 System.out.println("------Testcase : CYTC_019 : Validate Loan records -------");
  	 loginPOM.sendUserName("admin");
  	 loginPOM.sendPassword("12345");
  	 loginPOM.clickLoginBtn(); 

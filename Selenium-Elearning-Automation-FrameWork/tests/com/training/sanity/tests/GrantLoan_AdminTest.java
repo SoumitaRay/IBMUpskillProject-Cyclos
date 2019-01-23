@@ -82,7 +82,7 @@ public class GrantLoan_AdminTest {
 		{
 	  
 	 
-		System.out.println("------Testcase : CYTC_018 -------");
+		System.out.println("------Testcase : CYTC_018 :Grant Loan as Admin to Member -------");
 		
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("12345");

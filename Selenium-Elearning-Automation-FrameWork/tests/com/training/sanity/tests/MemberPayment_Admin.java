@@ -74,7 +74,7 @@ public class MemberPayment_Admin {
 
 	public void MemberPayment_Admin() throws InterruptedException
 	{
-	System.out.println("------Testcase : CYTC_017 -------");
+	System.out.println("------Testcase : CYTC_017 :Make payment as Admin to member -------");
 	
 	makemempayment_admin.gotoHome();
 	

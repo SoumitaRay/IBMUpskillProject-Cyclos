@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import javafx.scene.control.Tab;
 
@@ -81,47 +82,54 @@ WebDriverWait wait ;
 		Thread.sleep(2000);
 	}
 	
-	public boolean assertPaymentTypes(String type1, String type2,String type3)
+	public void assertPaymentTypes(String type1, String type2,String type3)
 	{
+		
+		String[] paytype = {"All","Commission Payments","Loan Payments"};
 		Select select = new Select(PaymentType);  
-		//String[] paytype = {"All","Commission Payments","Loan Payments"};
 		List<WebElement> paytypeDD = select.getOptions();
 		
-//		for(WebElement PaymentType: paytypeDD )
-//		{
-//			boolean match = false;
-//			for(int i=0; i<paytype.length; i++)
-//			{
-//			if(PaymentType.getText().equals(paytype[i]))
-//				match = true; 
-//		}
-		boolean match = false;
-		int counter = 0;
+		boolean match;
 		for(WebElement PaymentType: paytypeDD )
+		{
+			 match = false;
+			for(int i=0; i<paytype.length; i++)
 			{
-				
-				
-				if(PaymentType.getText().equals(type1)) 
-				{
-					counter ++; continue;
-				}
-				if(PaymentType.getText().equals(type2)) 
-				{
-					counter ++; continue;
-				}
-				if(PaymentType.getText().equals(type3)) 
-				{
-					counter ++; continue;
-				}
-	
-		
+			if(PaymentType.getText().equals(paytype[i]))
+				match = true; 
 			}
-		if (counter == 3)
-			{match = true;
-		System.out.println(match);
+			 Assert.assertTrue(match);
 		}
 		
-		return(match);
+		 
+			
+//		boolean match = false;
+//		int counter = 0;
+//		for(WebElement PaymentType: paytypeDD )
+//			{
+//				
+//				
+//				if(PaymentType.getText().equals(type1)) 
+//				{
+//					counter ++; continue;
+//				}
+//				if(PaymentType.getText().equals(type2)) 
+//				{
+//					counter ++; continue;
+//				}
+//				if(PaymentType.getText().equals(type3)) 
+//				{
+//					counter ++; continue;
+//				}
+//	
+//		
+//			}
+//		if (counter == 3)
+//			{match = true;
+//		System.out.println(match);
+//		}
+//		
+		
 
 	}
 	

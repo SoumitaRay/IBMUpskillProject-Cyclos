@@ -83,11 +83,11 @@ public class FilterMessag_Member {
 		System.out.println(dataset_cols);
 		String []recordset = new String[dataset_cols]; 
 		
-		for (int i=2;i<=dataset_cols;i++)
+		for (int i=1;i<=dataset_cols;i++)
 		{
 			WebElement dataset_col_data = driver.findElement(By.xpath("(//table[@class='defaultTable'])[2]/tbody/tr[2]/td["+i+"]"));
 			System.out.println(i+" " + dataset_col_data);
-			recordset[i-2] = dataset_col_data.getText();
+			recordset[i-1] = dataset_col_data.getText();
 						
 			switch(i)
 			{
@@ -104,7 +104,7 @@ public class FilterMessag_Member {
 			
 			case 2:				
 				
-				boolean check_col2 = (dataset_col_data.getText().equalsIgnoreCase("20/01/2019"));
+				boolean check_col2 = (dataset_col_data.getText().equalsIgnoreCase("22/01/2019"));
 				System.out.println(check_col2);
 				break;
 										
@@ -140,6 +140,6 @@ public class FilterMessag_Member {
 		Select select_type = new Select(msgbox_type);
 		select_type.selectByVisibleText("Trash");
 		assertTrue(datatable != null); 
-		
+		System.out.println("rec deleted");
 	}
 }

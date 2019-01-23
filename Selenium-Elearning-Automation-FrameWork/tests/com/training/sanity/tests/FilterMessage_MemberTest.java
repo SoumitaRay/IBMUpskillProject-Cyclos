@@ -61,7 +61,7 @@ public class FilterMessage_MemberTest {
   @Test
   public void filtermsg_Inbox() {
 	  
-	  System.out.println("------Testcase : CYTC_048-------");
+	  System.out.println("------Testcase : CYTC_048 : Filter member mailbox-------");
 	 	loginPOM.sendUserName("Soumita123");
 		loginPOM.sendPassword("test1234");
 		loginPOM.clickLoginBtn();

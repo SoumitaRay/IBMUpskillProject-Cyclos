@@ -86,7 +86,7 @@ public class FilterTrxDetails_MemberTest {
   }
 
   
-  @Test(enabled = false,dataProvider="SearchResult_Loan")
+  @Test(priority = 3,dataProvider="SearchResult_Loan")
   public void filterMemberTransaction_Loan(String date, String name, String description, String amount) 
   
   {

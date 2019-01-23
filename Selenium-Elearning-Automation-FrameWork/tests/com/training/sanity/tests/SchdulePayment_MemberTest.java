@@ -62,7 +62,7 @@ public class SchdulePayment_MemberTest {
   @Test(dataProvider="FuturePay")
   public void SchedulePayment_Member(String name,String amount ,String desc) throws InterruptedException
   {
-	  System.out.println("------Testcase : CYTC_047-------");
+	  System.out.println("------Testcase : CYTC_047 : Schedule Future payment-------");
 	 	loginPOM.sendUserName("Soumita123");
 		loginPOM.sendPassword("test1234");
 		loginPOM.clickLoginBtn();
