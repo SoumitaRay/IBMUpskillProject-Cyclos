@@ -12,17 +12,20 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.training.dataproviders.LoginDataProviders;
 import com.training.generics.ScreenShot;
 import com.training.pom.GrantLoan_Admin;
 import com.training.pom.LoginPOM;
 import com.training.pom.MakeMemberPayment_Admin;
 import com.training.pom.MemberProfile;
+import com.training.readexcel.ApachePOIExcelRead;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class GrantLoan_AdminTest {
+public class DP_GrantLoan_AdminTest {
 	
 	private WebDriver driver;
 	private static String baseUrl;
@@ -70,33 +73,40 @@ public class GrantLoan_AdminTest {
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		driver.quit();
+	//	driver.quit();
 	}
 	
 
 	
 		
-  @Test
-	public void GrantLoanToMember_Admin() throws InterruptedException
+  @Test(dataProvider="excel-inputs_TC76", dataProviderClass = LoginDataProviders.class)
+//	@Test(dataProvider="DP_grantLoan")
 	
-		{
-	  
+	public void DP_GrantLoanToMember_Admin(String memlogin,String amount,String desc) throws InterruptedException
+	
+		{	  
 	 
-		System.out.println("------Testcase : CYTC_018 :Grant Loan as Admin to Member -------");
+		System.out.println("------Testcase : CYTC_076 :Grant Loan as Admin to multiple Member using Excel input -------");
 		
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("12345");
 		loginPOM.clickLoginBtn(); 
 		
 		makemempayment_admin.gotoHome();
-		memberprofile.sendMemberUserName("SoumitaAAA");
+		memberprofile.sendMemberUserName(memlogin);
 		grantLoan_Admin.click_GrantLoanToMember();
-		String ExpMemname = "SoumitaAAA";
+		String ExpMemname = memlogin;
 		String ActMemname = grantLoan_Admin.assertMembername();
 		Assert.assertEquals(ActMemname, ExpMemname);
-		grantLoan_Admin.grantMemberLoan_Admin("300", "home loan");
+		grantLoan_Admin.grantMemberLoan_Admin(amount, desc);
 		
 	}
 
-
+	@ DataProvider(name="DP_grantLoan")
+	  public Object[] MemberList()throws Exception{
+		  String filename = "C:\\Users\\SOUMITARAY\\ProjectCyclos\\Login_GrantLoan.xlsx";
+		  Object[] testObjArray = new ApachePOIExcelRead().getExcelContent(filename);
+	      return(testObjArray);
+	
+}
 }

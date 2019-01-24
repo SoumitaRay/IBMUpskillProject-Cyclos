@@ -26,6 +26,7 @@ public class GrantLoan_Admin
 	}
 	
 	@FindBy(xpath="//*[@linkurl='grantLoan?memberId=35']")
+	// //*[contains(text(),'Grant loan')]//following-sibling::[@value='Submit']
 	WebElement GrantLoan_SubmitBtn;
 	
 	@FindBy(xpath="//*[@class='tdHeaderTable']")
@@ -85,7 +86,7 @@ public class GrantLoan_Admin
 	/**
 	 * 
 	 */
-	public void  grantMemberLoan_Admin(int amt, String desc)
+	public void  grantMemberLoan_Admin(String amt, String desc)
 	{		
 		Select select = new Select(loanType);
 		select.selectByVisibleText("Loan");
@@ -93,8 +94,8 @@ public class GrantLoan_Admin
 		assertEquals(option.getText(), "Loan");
 		
 		System.out.println("loan selected");
-				String amount = Integer.toString(amt);
-		this.loanAmt.sendKeys(amount);
+			//	String amount = Integer.toString(amt);
+		this.loanAmt.sendKeys(amt);
 		this.loanDescription.sendKeys(desc);
 		this.loanSubmitBtn.click();
 	//	String text = this.loanConfirmation_header.getText();
@@ -114,7 +115,7 @@ public class GrantLoan_Admin
 		
 	}
 	
-	public void verify_LoanDetails(int amount, String desc)
+	public void verify_LoanDetails(String amount, String desc)
 	{
 		String ActHeader=  this.grantLoan_header.getText();
 		String ExpHeader = "Grant loan to SoumitaAAA";
