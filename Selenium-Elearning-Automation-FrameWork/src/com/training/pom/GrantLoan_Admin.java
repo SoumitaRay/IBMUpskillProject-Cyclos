@@ -2,6 +2,7 @@ package com.training.pom;
 
 
 
+import static org.junit.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 
 
@@ -25,7 +27,7 @@ public class GrantLoan_Admin
 			
 	}
 	
-	@FindBy(xpath="//*[@linkurl='grantLoan?memberId=35']")
+	@FindBy(xpath="//*[@id=\"tdContents\"]/table[1]/tbody/tr[2]/td/table/tbody/tr[8]/td/fieldset/table/tbody/tr[1]/td[4]/input")
 	// //*[contains(text(),'Grant loan')]//following-sibling::[@value='Submit']
 	WebElement GrantLoan_SubmitBtn;
 	
@@ -38,7 +40,7 @@ public class GrantLoan_Admin
 	@FindBy(xpath ="//*[@id='transferType']")
 	WebElement loanType;
 	
-	@FindBy(id="amount")
+	@FindBy(name="loan(amount)")
 	WebElement loanAmt;
 	
 	@FindBy(id="description")
@@ -64,7 +66,7 @@ public class GrantLoan_Admin
 	@FindBy(xpath = "//*[@value='Submit']")
 	WebElement loanConfirmation_Submit;
 	
-	
+	static String Memname;
 	
 	
 	
@@ -84,9 +86,10 @@ public class GrantLoan_Admin
 	
 	
 	/**
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public void  grantMemberLoan_Admin(String amt, String desc)
+	public void  grantMemberLoan_Admin(String amt, String desc) throws InterruptedException
 	{		
 		Select select = new Select(loanType);
 		select.selectByVisibleText("Loan");
@@ -108,7 +111,7 @@ public class GrantLoan_Admin
 	// Assert.assertEquals(this.loanConfirmation_loandesc.getText(), desc);
 		
 		verify_LoanDetails(amt,desc);		
-		
+		Thread.sleep(2000);
 		this.loanConfirmation_Submit.click();
 		driver.switchTo().alert().accept();
 			
@@ -118,12 +121,12 @@ public class GrantLoan_Admin
 	public void verify_LoanDetails(String amount, String desc)
 	{
 		String ActHeader=  this.grantLoan_header.getText();
-		String ExpHeader = "Grant loan to SoumitaAAA";
+		String ExpHeader = "Grant loan to "+Memname;
 		String amt = String.valueOf(amount);
-		//Assert.verify(ActHeader.equalsIgnoreCase(ExpHeader));
+	//	assertTrue(ActHeader.contains(ExpHeader));
 		
 		try {
-			boolean headercheck=ActHeader.equalsIgnoreCase(ExpHeader);
+			boolean headercheck=ActHeader.contains(ExpHeader);
 		
 			boolean loantypecheck = this.loanConfirmation_loantype.getText().equalsIgnoreCase("Loan");	
 			

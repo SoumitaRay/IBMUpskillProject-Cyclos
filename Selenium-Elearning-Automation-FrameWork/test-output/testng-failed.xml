@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.DP_GrantLoan_AdminTest">
+      <class name="com.training.sanity.tests.DPDB_GrantLoan_AdminTest">
         <methods>
-          <include name="setUpBeforeClass"/>
           <include name="tearDown"/>
-          <include name="DP_GrantLoanToMember_Admin" invocation-numbers="0 1 2"/>
           <include name="setUp"/>
+          <include name="DP_GrantLoanToMember_Admin"/>
+          <include name="setUpBeforeClass"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.DP_GrantLoan_AdminTest -->
+      </class> <!-- com.training.sanity.tests.DPDB_GrantLoan_AdminTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

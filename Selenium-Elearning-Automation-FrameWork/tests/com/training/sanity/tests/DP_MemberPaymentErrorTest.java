@@ -1,38 +1,33 @@
 package com.training.sanity.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.training.dataproviders.LoginDataProviders;
 import com.training.generics.ScreenShot;
-import com.training.pom.GrantLoan_Admin;
 import com.training.pom.LoginPOM;
 import com.training.pom.MakeMemberPayment_Admin;
-import com.training.pom.MemberProfile;
-import com.training.readexcel.ApachePOIExcelRead;
+import com.training.pom.Member_to_MemberPayment;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class DP_GrantLoan_AdminTest {
-	
+public class DP_MemberPaymentErrorTest {
 	private WebDriver driver;
 	private static String baseUrl;
 	private LoginPOM loginPOM;
-	private MemberProfile memberprofile;
+	
 	private MakeMemberPayment_Admin makemempayment_admin;
-	private GrantLoan_Admin grantLoan_Admin;
+	private Member_to_MemberPayment memtomemPay;
 
 	
 	private static Properties properties;
@@ -47,9 +42,8 @@ public class DP_GrantLoan_AdminTest {
 	   screenShot = new ScreenShot(driver); 
 	   driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 
-		memberprofile = new MemberProfile(driver);
 		makemempayment_admin = new MakeMemberPayment_Admin(driver);
-		grantLoan_Admin= new GrantLoan_Admin(driver);
+		memtomemPay= new Member_to_MemberPayment(driver);
 		
 	   
 	// open the browser 
@@ -77,36 +71,30 @@ public class DP_GrantLoan_AdminTest {
 	}
 	
 
-	
+	  @Test(priority=1)
 		
-  @Test(dataProvider="excel-inputs_TC76", dataProviderClass = LoginDataProviders.class)
-//	@Test(dataProvider="DP_grantLoan")
-	
-	public void DP_GrantLoanToMember_Admin(String memlogin,String amount,String desc) throws InterruptedException
-	
-		{	  
-	 
-		System.out.println("------Testcase : CYTC_076 :Grant Loan as Admin to multiple Member using Excel input -------");
-		
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("12345");
-		loginPOM.clickLoginBtn(); 
-		
-		makemempayment_admin.gotoHome();
-		memberprofile.sendMemberUserName(memlogin);
-		grantLoan_Admin.click_GrantLoanToMember();
-		String ExpMemname = memlogin;
-		String ActMemname = grantLoan_Admin.assertMembername();
-		Assert.assertEquals(ActMemname, ExpMemname);
-		grantLoan_Admin.grantMemberLoan_Admin(amount, desc);
-		
-	}
+		public void loginPassTest() 
+		{
 
-	@ DataProvider(name="DP_grantLoan")
-	  public Object[] MemberList()throws Exception{
-		  String filename = "C:\\Users\\SOUMITARAY\\ProjectCyclos\\Login_GrantLoan.xlsx";
-		  Object[] testObjArray = new ApachePOIExcelRead().getExcelContent(filename);
-	      return(testObjArray);
+			System.out.println("------Testcase : CYTC_080 : Member Login -------");
+			loginPOM.sendUserName("Soumita123");
+			loginPOM.sendPassword("test1234");
+			loginPOM.clickLoginBtn(); 
+			
+		}
+	  
+	  
+  @Test(priority=2 ,dataProvider="excel-inputs_TC80", dataProviderClass = LoginDataProviders.class)
+  
+  public void MemberPayment_member(String name,String amount ,String desc) throws InterruptedException
+  {
+	  System.out.println("------Testcase : CYTC_080 : Member Payment"+name+ "-------");
+	 	memtomemPay.makeMemberPayment_Member(name, amount, desc);
+	 	Thread.sleep(2000);
+		makemempayment_admin.gotoHome();
+	//	schpay_member.validate_searchResult_SchPayment("19/02/2019","Selenium1","0,55","Processed");
+  }
+  
+  
 	
-}
 }
