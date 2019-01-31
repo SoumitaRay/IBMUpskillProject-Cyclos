@@ -75,7 +75,7 @@ public class RepayLoan_Member {
 				System.out.println("view clicked");
 				}
 		}		 
-	 
+	 try {
 		assertTrue((stringToInt(loan_amt)) >= (stringToInt(repay_amt)));
 		 this.repayamount_text.sendKeys(repay_amt);
 		 repay_btn.click();
@@ -85,7 +85,11 @@ public class RepayLoan_Member {
 		assertTrue((driver.switchTo().alert().getText()).contains("The repayment was succesfully processed"));
 		alert.accept();
 		System.out.println("repayment done");
-		 
+	 }catch (ArithmeticException e)
+	 {
+		 e.printStackTrace();
+		 System.out.println("Please check repayment loan amount");
+	 }
 	}
 	
 	 public int stringToInt(String amount)
