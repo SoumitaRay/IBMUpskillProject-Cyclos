@@ -1,5 +1,6 @@
 package com.training.pom;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,10 @@ public class LoginPOM {
 	@FindBy(xpath="//*[@id='cyclosLogin']//*[@value='Submit']")
 	private WebElement loginBtn; 
 	
+	@FindBy(xpath="//*[@class='menuText' and contains(text(),'Logout')]")
+	WebElement logout;
+	
+	
 	public void sendUserName(String userName) {
 		this.userName.clear();
 		this.userName.sendKeys(userName);
@@ -34,5 +39,12 @@ public class LoginPOM {
 	
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
+	}
+	
+	public void logout()
+	{
+		this.logout.click();
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 	}
 }

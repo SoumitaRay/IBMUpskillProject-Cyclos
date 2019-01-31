@@ -33,22 +33,20 @@ public class LoginDataProviders {
 	@DataProvider(name = "excel-inputs_TC76")
 	public Object[][] getExcelData(){
 		String fileName ="C:\\Users\\SOUMITARAY\\ProjectCyclos\\Login_GrantLoan.xlsx"; 
-		int sheetnum = 0;
-		return new ApachePOIExcelRead().getExcelContent(fileName,sheetnum); 
+		return new ApachePOIExcelRead().getExcelContent(fileName,0); 
 	}
 	
 	@DataProvider(name = "excel-inputs_TC78")
 	public Object[][] getExcelDataRepay(){
 		String fileName ="C:\\Users\\SOUMITARAY\\ProjectCyclos\\Login_GrantLoan.xlsx"; 
-		int sheetnum = 1;
-		return new ApachePOIExcelRead().getExcelContent(fileName,sheetnum); 
+		return new ApachePOIExcelRead().getExcelContent(fileName,1); 
 	}
 	
 	@DataProvider(name = "excel-inputs_TC80")
 	public Object[][] getExcelDataErrScenario(){
 		String fileName ="C:\\Users\\SOUMITARAY\\ProjectCyclos\\Login_MemberPayError.xlsx"; 
 		int sheetnum = 0;
-		return new ApachePOIExcelRead().getExcelContent(fileName,sheetnum); 
+		return new ApachePOIExcelRead().getExcelContent(fileName,0); 
 	}
 	
 

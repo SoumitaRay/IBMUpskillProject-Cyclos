@@ -37,7 +37,7 @@ WebDriverWait wait ;
 	 
 	 
 	
-	@FindBy(name ="member(user).username")
+	@FindBy(id ="memberUsername")
 	private WebElement mName;
 	
 	
@@ -57,10 +57,12 @@ WebDriverWait wait ;
 	
 	
 	public void sendMemberUserName(String name) throws InterruptedException {
-		this.memberName.sendKeys(Keys.F5);
-		this.memberName.clear();
-	    this.memberName.sendKeys(name);
+		this.mName.sendKeys(Keys.F5);
+		this.mName.clear();
+	    this.mName.sendKeys(name);
 		Thread.sleep(5000);
+		
+		System.out.println("member selected");
 	//	this.memberName.sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 //	System.out.println("member clicked");

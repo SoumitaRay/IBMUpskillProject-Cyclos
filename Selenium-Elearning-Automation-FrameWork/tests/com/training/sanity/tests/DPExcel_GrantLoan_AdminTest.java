@@ -110,17 +110,24 @@ public class DPExcel_GrantLoan_AdminTest {
 		
 	}
   
-  @Test(priority=2 ,dataProvider="excel-inputs_TC78", dataProviderClass = LoginDataProviders.class,dependsOnMethods = {"DP_GrantLoanToMember_Admin"})
+  
+  @Test(priority=3)
+	
+	public void logoutTest() 
+	{
+
+		System.out.println("------Testcase : CYTC_078 :Admin Logout -------");
+		loginPOM.logout();
+		
+	}
+	
+  
+  @Test(priority=3 ,dataProvider="excel-inputs_TC78", dataProviderClass = LoginDataProviders.class,dependsOnMethods = {"DP_GrantLoanToMember_Admin"})
   public void repayLoan_Member()
   {
 	  
+	  
   }
 
-//	@ DataProvider(name="DP_grantLoan")
-//	  public Object[] MemberList()throws Exception{
-//		  String filename = "C:\\Users\\SOUMITARAY\\ProjectCyclos\\Login_GrantLoan.xlsx";
-//		  Object[] testObjArray = new ApachePOIExcelRead().getExcelContent(filename);
-//	      return(testObjArray);
-//	
-// }
+	
 }

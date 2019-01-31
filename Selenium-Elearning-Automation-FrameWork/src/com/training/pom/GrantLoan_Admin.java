@@ -2,7 +2,7 @@ package com.training.pom;
 
 
 
-import static org.junit.Assert.assertTrue;
+
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
@@ -90,7 +90,7 @@ public class GrantLoan_Admin
 	 * 
 	 */
 	public void  grantMemberLoan_Admin(String amt, String desc) throws InterruptedException
-	{		
+	{		System.out.println("in grant loan method");
 		Select select = new Select(loanType);
 		select.selectByVisibleText("Loan");
 		WebElement option = select.getFirstSelectedOption();

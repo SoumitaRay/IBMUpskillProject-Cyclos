@@ -1,6 +1,6 @@
 package com.training.pom;
 
-import static org.junit.Assert.assertTrue;
+
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
+
 
 public class Member_to_MemberPayment {
 	WebDriver driver;
